@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Search</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>Lineal Search</h1>
+        <form action="/linearsearch">
+            <input type="text" id="list" name="list" value="list"><br><br>
+            <input type="text" id="value" name="value" value="value"><br><br>
+            <input type="button" value="Submit" onclick="loadGetMsg()">
+        </form> 
+        <div id="getrespmsg1"></div>
+        <script>
+            function loadGetMsg1() {
+                let list = document.getElementById("list").value;
+                let value= document.getElementById("value").value;
+                const xhttp = new XMLHttpRequest();
+                xhttp.onload = function() {
+                    document.getElementById("getrespmsg1").innerHTML =
+                    this.responseText;
+                }
+                xhttp.open("GET", "/linalsearch?list=" + list + "&value=" + value);
+                xhttp.send();
+            }
+        </script>
+
+        <h1>Binary Search</h1>
+        <form action="/binarysearch">
+            <input type="text" id="list" name="list" value="list"><br><br>
+            <input type="text" id="value" name="value" value="value"><br><br>
+            <input type="button" value="Submit" onclick="loadGetMsg()">
+        </form> 
+        <div id="getrespmsg"></div>
+        <script>
+            function loadGetMsg() {
+                let list = document.getElementById("list").value;
+                let value= document.getElementById("value").value;
+                const xhttp = new XMLHttpRequest();
+                xhttp.onload = function() {
+                    document.getElementById("getrespmsg").innerHTML =
+                    this.responseText;
+                }
+                xhttp.open("GET", "/binarysearch?list=" + list + "&value=" + value);
+                xhttp.send();
+            }
+        </script>
+
+        
+    </body>
+</html>
+
+  
