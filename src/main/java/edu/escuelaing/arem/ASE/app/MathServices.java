@@ -47,10 +47,21 @@ public class MathServices {
         });
     }
 
-    private static int binarysearch(String[] list ) {
+    private static int binarysearch(String[] list, int value, int ini, int fin) {
 
-        int piv =
-            
+        int piv = Integer.parseInt(list[list.length / 2]);
+
+        if (piv == value) {
+
+            return list.length / 2;
+        } else if (piv < value) {
+
+            return binarysearch(list, value);
+        } else if (piv > value) {
+
+            return binarysearch(list, value);
+        }
+
     }
 
     private static int getPort() {
