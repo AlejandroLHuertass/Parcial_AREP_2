@@ -1,5 +1,7 @@
 build/
 coverage/
+target
+target/
 npm-debug.log
 box-node-express-skeleton-app/app/config/local.js
 box-node-express-skeleton-app/app/config/production.js
@@ -305,7 +307,6 @@ Icon
 
 # Thumbnails
 ._*
-
 # Files that might appear in the root of a volume
 .DocumentRevisions-V100
 .fseventsd
