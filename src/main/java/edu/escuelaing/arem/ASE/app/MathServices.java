@@ -2,9 +2,6 @@ package edu.escuelaing.arem.ASE.app;
 
 import static spark.Spark.*;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-
 public class MathServices {
 
     public static void main(String[] args) {
@@ -33,35 +30,30 @@ public class MathServices {
             int value = Integer.parseInt(req.queryParams("value"));
             String list = req.queryParams("list");
             String[] list1 = list.toString().split(",");
-
-            int resp = -1;
-            ArrayList<Integer> int_list;
-            for (int i = 0; i < list1.length; i++) {
-                int list1 = Integer.parseInt(list1[i]);
-
-            }
-
-            String reps1 = "{\"operation\":\"linearSearch\",\"inputlist\": " + list + ",\"value\":" + value
+            System.out.println(list1 + "0" + list1.length + value);
+            System.out.println("aquitambien");
+            int resp = binarySearch(list1, 0, list1.length - 1, value);
+            System.out.println(resp);
+            String reps1 = "{\"operation\":\"BinarySearch\",\"inputlist\": " + list + ",\"value\":" + value
                     + ",\"output\":" + resp + "}";
             return reps1;
         });
     }
 
-    private static int binarysearch(String[] list, int value, int ini, int fin) {
+    public static int binarySearch(String[] list, int l, int r, int x) {
 
-        int piv = Integer.parseInt(list[list.length / 2]);
+        if (r >= l && l <= list.length - 1) {
 
-        if (piv == value) {
+            int mid = l + (r - l) / 2;
+            if (Integer.parseInt(list[mid]) == x)
+                return mid;
 
-            return list.length / 2;
-        } else if (piv < value) {
+            if (Integer.parseInt(list[mid]) > x)
+                return binarySearch(list, l, mid - 1, x);
 
-            return binarysearch(list, value);
-        } else if (piv > value) {
-
-            return binarysearch(list, value);
+            return binarySearch(list, mid + 1, r, x);
         }
-
+        return -1;
     }
 
     private static int getPort() {
