@@ -1,6 +1,9 @@
 build/
 coverage/
 target
+.classpath
+.project
+.settings/
 target/
 npm-debug.log
 box-node-express-skeleton-app/app/config/local.js
