@@ -11,7 +11,7 @@
         <form action="/linearsearch">
             <input type="text" id="list" name="list" value="list"><br><br>
             <input type="text" id="value" name="value" value="value"><br><br>
-            <input type="button" value="Submit" onclick="loadGetMsg()">
+            <input type="button" value="Submit" onclick="loadGetMsg1()">
         </form> 
         <div id="getrespmsg1"></div>
         <script>
@@ -23,7 +23,7 @@
                     document.getElementById("getrespmsg1").innerHTML =
                     this.responseText;
                 }
-                xhttp.open("GET", "/linalsearch?list=" + list + "&value=" + value);
+                xhttp.open("GET", "/linearsearch?list=" + list + "&value=" + value);
                 xhttp.send();
             }
         </script>

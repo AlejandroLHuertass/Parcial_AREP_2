@@ -30,10 +30,7 @@ public class MathServices {
             int value = Integer.parseInt(req.queryParams("value"));
             String list = req.queryParams("list");
             String[] list1 = list.toString().split(",");
-            System.out.println(list1 + "0" + list1.length + value);
-            System.out.println("aquitambien");
             int resp = binarySearch(list1, 0, list1.length - 1, value);
-            System.out.println(resp);
             String reps1 = "{\"operation\":\"BinarySearch\",\"inputlist\": " + list + ",\"value\":" + value
                     + ",\"output\":" + resp + "}";
             return reps1;
